@@ -1,0 +1,17 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: zhishang-webapp-www-service 
+spec:
+  selector:
+    app: zhishang-webapp-www
+  ports:
+  - name: http
+    protocol: TCP
+    port: 90
+    targetPort: 80
+  - name: https
+    protocol: TCP
+    port: 443
+    targetPort: 443
+  #type: NodePort

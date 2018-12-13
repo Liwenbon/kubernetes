@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zhishang-webapp-www-deployment
+spec:
+  replicas: 3 
+  selector:
+    matchLabels:
+      app: zhishang-webapp-www
+  template:
+    metadata:
+      labels:
+        app: zhishang-webapp-www
+    spec:
+      containers:
+      - name: zhishang-webapp-www
+        image: habm.koolearn.com/zhishang-webapp-www/zhishang-webapp-www
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+        - name: harbor-secret
+---
